@@ -18,6 +18,7 @@ class SignUpScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: SizedBox(
           height: size.height,
+          width: size.width,
           child: Column(
             children: [
               Expanded(
