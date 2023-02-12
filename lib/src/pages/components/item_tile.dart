@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
 import 'package:greengrocer/src/models/item_model.dart';
+import 'package:greengrocer/src/pages/product/product_screen.dart';
 
 class ItemTile extends StatelessWidget {
   final ItemModel item;
@@ -12,49 +13,62 @@ class ItemTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Card(
-          elevation: 0,
-          shadowColor: Colors.grey.shade300,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // image
-                Expanded(child: Image.asset(item.imgUrl)),
-                //nome
-                Text(
-                  item.itemName,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                // preco
-                Row(
-                  children: [
-                    Text(
-                      'MZN ${item.price.toString()}',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: CustomColors.customSwatchColor,
-                      ),
+        GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) {
+                  return ProductScreen(
+                    item: item,
+                  );
+                },
+              ),
+            );
+          },
+          child: Card(
+            elevation: 0,
+            shadowColor: Colors.grey.shade300,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  // image
+                  Expanded(child: Image.asset(item.imgUrl)),
+                  //nome
+                  Text(
+                    item.itemName,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
-                    Text(
-                      '/${item.unit}',
-                      style: TextStyle(
-                        color: Colors.grey.shade500,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
+                  ),
+                  // preco
+                  Row(
+                    children: [
+                      Text(
+                        'MZN ${item.price.toString()}',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: CustomColors.customSwatchColor,
+                        ),
                       ),
-                    )
-                  ],
-                ),
-              ],
+                      Text(
+                        '/${item.unit}',
+                        style: TextStyle(
+                          color: Colors.grey.shade500,
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -63,7 +77,7 @@ class ItemTile extends StatelessWidget {
             right: 4,
             child: GestureDetector(
               onTap: () {
-                print(item.itemName);
+                // print(item.itemName);
               },
               child: Container(
                 decoration: BoxDecoration(
