@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_final_fields, unused_field, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:greengrocer/src/home/home_tab.dart';
 
 class BaseScreen extends StatefulWidget {
   const BaseScreen({Key? key}) : super(key: key);
@@ -19,9 +20,7 @@ class _BaseScreenState extends State<BaseScreen> {
         physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
         children: [
-          Container(
-            color: Colors.amber,
-          ),
+          HomeTaB(),
           Container(
             color: Colors.purple,
           ),
