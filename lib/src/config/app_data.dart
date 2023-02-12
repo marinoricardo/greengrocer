@@ -62,12 +62,6 @@ List<ItemModel> items = [
   kiwi,
   mango,
   papaya,
-  apple,
-  grape,
-  guava,
-  kiwi,
-  mango,
-  papaya,
 ];
 
 List<String> categories = [

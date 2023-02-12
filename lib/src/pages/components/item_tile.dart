@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last
 
 import 'package:flutter/material.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
@@ -37,7 +37,12 @@ class ItemTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   // image
-                  Expanded(child: Image.asset(item.imgUrl)),
+                  Expanded(
+                    child: Hero(
+                      child: Image.asset(item.imgUrl),
+                      tag: item.imgUrl,
+                    ),
+                  ),
                   //nome
                   Text(
                     item.itemName,
