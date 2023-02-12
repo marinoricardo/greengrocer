@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_final_fields, unused_field, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:greengrocer/src/home/home_tab.dart';
+import 'package:greengrocer/src/pages/home/home_tab.dart';
 
 class BaseScreen extends StatefulWidget {
   const BaseScreen({Key? key}) : super(key: key);
