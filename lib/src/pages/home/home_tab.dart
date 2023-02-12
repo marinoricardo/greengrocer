@@ -140,7 +140,9 @@ class _HomeTaBState extends State<HomeTaB> {
               ),
               itemCount: appData.items.length,
               itemBuilder: (context, index) {
-                return ItemTile();
+                return ItemTile(
+                  item: appData.items[index],
+                );
               },
             ),
           ),
