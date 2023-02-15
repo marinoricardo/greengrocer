@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Greengrocer',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: CustomColors.customSwatchColor,
+        primarySwatch: Colors.green,
         scaffoldBackgroundColor: Colors.white.withAlpha(190),
       ),
       home: const SignInScreen(),
