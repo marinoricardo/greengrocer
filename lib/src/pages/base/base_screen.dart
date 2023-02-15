@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_final_fields, unused_field, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:greengrocer/src/pages/cart/cart_tab.dart';
 import 'package:greengrocer/src/pages/home/home_tab.dart';
 
 class BaseScreen extends StatefulWidget {
@@ -21,9 +22,7 @@ class _BaseScreenState extends State<BaseScreen> {
         controller: _pageController,
         children: [
           HomeTaB(),
-          Container(
-            color: Colors.purple,
-          ),
+          CartTab(),
           Container(
             color: Colors.red,
           ),
