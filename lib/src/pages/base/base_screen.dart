@@ -37,8 +37,11 @@ class _BaseScreenState extends State<BaseScreen> {
           setState(() {
             currentIndex = page;
           });
-          _pageController.animateToPage(page,
-              duration: Duration(milliseconds: 3), curve: Curves.ease);
+          _pageController.animateToPage(
+            page,
+            duration: Duration(milliseconds: 3),
+            curve: Curves.ease,
+          );
         },
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.green,

@@ -1,9 +1,18 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:greengrocer/src/config/custom_colors.dart';
 
 class QuantityWidget extends StatelessWidget {
-  const QuantityWidget({Key? key}) : super(key: key);
+  final int value;
+  final String suffixText;
+  final Function(int quantity) result;
+  const QuantityWidget(
+      {Key? key,
+      required this.value,
+      required this.suffixText,
+      required this.result})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,55 +31,71 @@ class QuantityWidget extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Material(
-            child: InkWell(
-              borderRadius: BorderRadius.circular(50),
-              onTap: () {},
-              child: Ink(
-                height: 25,
-                width: 25,
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  Icons.add,
-                  color: Colors.white,
-                  size: 16,
-                ),
-              ),
-            ),
+          _QuantityButton(
+            icon: Icons.remove,
+            onPressed: () {
+              if (value == 1) return;
+              int resultCount = value - 1;
+
+              result(resultCount);
+            },
+            color: Colors.grey,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 6.0),
             child: Text(
-              '1 kg',
+              '$value$suffixText',
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          Material(
-            child: InkWell(
-              borderRadius: BorderRadius.circular(50),
-              onTap: () {},
-              child: Ink(
-                height: 25,
-                width: 25,
-                decoration: BoxDecoration(
-                  color: Colors.grey,
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  Icons.remove,
-                  color: Colors.white,
-                  size: 16,
-                ),
-              ),
-            ),
+          _QuantityButton(
+            icon: Icons.add,
+            onPressed: () {
+              int resultCount = value + 1;
+
+              result(resultCount);
+            },
+            color: CustomColors.customSwatchColor,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _QuantityButton extends StatelessWidget {
+  final IconData icon;
+  final Color color;
+  final VoidCallback onPressed;
+  const _QuantityButton({
+    Key? key,
+    required this.icon,
+    required this.color,
+    required this.onPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      child: InkWell(
+        borderRadius: BorderRadius.circular(50),
+        onTap: onPressed,
+        child: Ink(
+          height: 25,
+          width: 25,
+          decoration: BoxDecoration(
+            color: color,
+            shape: BoxShape.circle,
+          ),
+          child: Icon(
+            icon,
+            color: Colors.white,
+            size: 16,
+          ),
+        ),
       ),
     );
   }
