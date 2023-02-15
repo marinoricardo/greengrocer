@@ -11,8 +11,17 @@ class CartTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        title: Text(cartItemModel.item.itemName),
-        leading: Image.asset(cartItemModel.item.imgUrl),
+        leading: Image.asset(
+          cartItemModel.item.imgUrl,
+          height: 60,
+          width: 60,
+        ),
+        title: Text(
+          cartItemModel.item.itemName,
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+          ),
+        ),
       ),
     );
   }

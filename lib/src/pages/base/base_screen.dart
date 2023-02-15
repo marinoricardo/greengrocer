@@ -46,12 +46,29 @@ class _BaseScreenState extends State<BaseScreen> {
         unselectedItemColor: Colors.white.withAlpha(100),
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined), label: 'Home'),
+            icon: Icon(
+              Icons.home_outlined,
+            ),
+            label: 'Home',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart_outlined), label: 'Carinho'),
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Produtos'),
+            icon: Icon(
+              Icons.shopping_cart_outlined,
+            ),
+            label: 'Carinho',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline), label: 'Perfil'),
+            icon: Icon(
+              Icons.list,
+            ),
+            label: 'Pedidos',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person_outline,
+            ),
+            label: 'Perfil',
+          ),
         ],
       ),
     );
