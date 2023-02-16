@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   animated_text_kit: ^4.2.2
   badges: ^3.0.2
+  add_to_cart_animation: 
   
 dev_dependencies:
   flutter_test:
